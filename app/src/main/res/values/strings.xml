@@ -1,0 +1,202 @@
+<resources>
+    <string name="app_name">Paisa Nikal</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="services">Services</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="enter_mobile">Enter Mobile</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="login">Login</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="proceed">Proceed</string>
+    <string name="search_customer">Search Customer</string>
+    <string name="i_accept">I accept</string>
+    <string name="terms_n_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="add_customer">Add Customer</string>
+    <string name="select_bank">Select Bank</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="enter_valid_amount">Enter Valid Amount</string>
+    <string name="enter_aadhar">Enter Aadhar</string>
+    <string name="timeout">Session Timeout</string>
+    <string name="invalid_session">Invalid Session, Please close the app and relaunch.</string>
+    <string name="error_occured">Some Error Occurred</string>
+    <string name="internet_not_available">Internet is not available</string>
+    <string name="scan_finger">Scan Finger</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="powered_by">Powerd By:</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="check_server">Check Server</string>
+    <string name="enter_valid_mobile">Enter Valid MobileNo</string>
+    <string name="enter_bank">Enter Bank</string>
+    <string name="agree_tnc">Please agree terms and conditions before proceeding</string>
+    <string name="aadhar_no">Aadhar No:</string>
+    <string name="bank">Bank:</string>
+    <string name="amount">Amount:</string>
+    <string name="mobile_no">Mobile No:</string>
+    <string name="choose_device">Please choose scanner device</string>
+    <string name="select_device">Please select device</string>
+    <string name="charge_msg">%s will be charged on this transaction. Total amount payable is %s, Are you sure you want to proceed?</string>
+    <string name="receipt">Receipt</string>
+    <string name="rrn">RRN:</string>
+    <string name="agent_id">Agent Id:</string>
+    <string name="cust_mobile">Customer Mobile:</string>
+    <string name="stan_no">STAN:</string>
+    <string name="transaction_Details">Transaction Details</string>
+    <string name="txn_amount">Amount:</string>
+    <string name="txn_fee">Txn. Fee:</string>
+    <string name="paid_amount">Paid Amount:</string>
+    <string name="txn_status">Txn. Status:</string>
+    <string name="total_balance">Total Balance:</string>
+    <string name="terms_condition">Terms &amp; Condition</string>
+    <string name="terms_condition_dmt">I hereby undertake that I am a registered member of Yes Bank and my use of this Application is subject to compliance of the T&amp;C as agreed at the time of my registration. For T&amp;C, please refer to: <a href="www.yesbank.in" target="_top">www.yesbank.in</a></string>
+    <string name="check_google_service">Google play service is not valid. Please check you Google play service version</string>
+    <string name="data_mismatch">Unauthorised Response</string>
+    <string name="certificate_error">Certificate Error</string>
+    <string name="enter_min_amount">Please enter minimum 100 rupees to max 10000 rupees</string>
+    <string name="app_not_run_on_root">App will not run on rooted devices</string>
+    <string name="valid_chars">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890</string>
+    <string name="valid_chars_ifcs">ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890</string>
+    <string name="valid_chars_address">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 .,-/\</string>
+    <string name="valid_chars_only">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="valid_num_only">0123456789</string>
+    <string name="fingerprint_captured">Fingerprint Captured</string>
+    <string name="not_fingerprint_captured">Not able to capture fingerpring, Please try again.</string>
+    <string name="mobile_no_start_from">Mobile No should not be start from 0,1,2,3,4</string>
+    <string name="device_not_validated">We are not able to verify device, Please try gain later</string>
+    <string name="balance">Balance: %s</string>
+    <string name="home">Home</string>
+    <string name="faq">FAQ</string>
+    <string name="feddback">Feedback</string>
+    <string name="contact_us">Contact us</string>
+    <string name="about_us">About us</string>
+    <string name="logout">Logout</string>
+    <string name="aeps">AEPS</string>
+    <string name="e_keyc">E-KYC</string>
+    <string name="dmt">DMT</string>
+    <string name="transaction_history">Transaction History</string>
+
+    <string name="office_address">EasyPay pvt ltd.</string>
+    <string name="office_address_details"> 1, Rangin Park Society,\nOpp Rajpath Club, \nSarkhej - Gandhinagar Highway,\nSatellite, Ahmedabad,\nGujarat 380015</string>
+    <string name="enter_feedback">Enter Feedback</string>
+    <string name="submit">Submit</string>
+    <string name="provide_feedback">Provide your feedback</string>
+    <string name="logout_msg">Are you sure you want to logout?</string>
+    <string name="ekyc">E-KYC</string>
+    <string name="title_activity_aadhar_detail">AadharDetailActivity</string>
+    <string name="dob">DOB:</string>
+    <string name="gender">Gender:</string>
+    <string name="phone">Phone:</string>
+    <string name="email_colon">Email:</string>
+    <string name="address">Address:</string>
+    <string name="accept">accept</string>
+    <string name="deposite">Deposite</string>
+    <string name="withdrawal">Withdrawal</string>
+    <string name="balance_check">Balance Info</string>
+    <string name="aeps_balance">Balance: %s</string>
+    <string name="type_balanceinfo">BALANCEINFO</string>
+    <string name="type_widthdrawal">WITHDRAWAL</string>
+
+    <string-array name="devices">
+        <item>MANTRA</item>
+        <item>MORPHO</item>
+        <item>TATVIK</item>
+    </string-array>
+
+    <string-array name="remittance_type">
+        <item>IMPS without IFSC</item>
+        <item>NEFT / IMPS Bank</item>
+    </string-array>
+
+    <string name="time_left">time left to verify</string>
+    <string name="verify_otp">Verify OTP</string>
+    <string name="enter_otp_info">Enter OTP Number , Which You Have Received By SMS</string>
+    <string name="varificaiton_time_expired">OTP Expired</string>
+    <string name="varify">Verify OTP</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="enter_6_digit_otp">Please Enter OTP</string>
+
+    <string name="about_us_detail">Paisa Nikal is India\'s one of its kind payment marketplace, which offers one-stop solution for all kinds of payments.\n\n
+        Paisa Nikal empowers merchants/traders/small business to collect payment from customers in a hassle-free way. Experience ease of digital payment and power your business. \n\n
+With the power of Mobile and Aadhaar, we have made it our mission to transform our nation’s retail stores into Digital Marts. Our Retail store is the future ‘Digital Sevak’ and will lead the movement to digitize cash by offering services like Domestic Money Transfer (DMT), Aadhaar Enabled Payment Service (AEPS), Recharge and Bill Payments.
+
+
+    </string>
+    <string name="kyc_verified">Customer KYC is already verified</string>
+    <string name="customer_ekyc_message">Customer kyc verified !!</string>
+    <string name="select_mantra">Please select Mantra device</string>
+    <string name="login_again">Login Again</string>
+    <string name="feedback_submitted">Feedback Submitted</string>
+    <string name="customer_ekyc_rejected">Customer KYC rejected !!</string>
+    <string name="sms_permission">You need to give SMS permission to automatically read OTP.</string>
+    <string name="loc_permission">You need to give Location permission.</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="timer_expired">Timer Expired, Please click here to resend otp</string>
+    <string name="aadhar_valid_no">Enter Valid Aadhar Number</string>
+    <string name="unable_capture">Unable to capture Fingerprint</string>
+    <string name="forogt_password">Forgot Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="change_password">Change Password</string>
+    <string name="enter_confirm_password">Enter Confirm Password</string>
+    <string name="enter_same_password">Enter Same password</string>
+    <string name="contact_email">contact@paisanikal.com</string>
+    <string name="location_updated_message">Location is updated successfully</string>
+
+    <string-array name="faq_que">
+        <item>1.What are the services available under AePS?</item>
+        <item>2.What are the benefits of AePS?</item>
+        <item>3.What is eKYC Service ?</item>
+        <item>4.Which biometric device supports by Yes Bank AePS?</item>
+        <item>5.Amount has deducted from customer bank account but not showing in my wallet?</item>
+        <item>6.How to treat fail / Unknown Transactions?</item>
+        <item>7.What if the amount not credited in customers account in 24 hours?</item>
+        <item>8.What if the amount not credited in customers account in 24 hours and Customer doesn\'t come to Agent?</item>
+    </string-array>
+
+    <string-array name="faq_ans">
+        <item>&#8226;Balance Enquiry\n
+            &#8226;Cash Withdrawal\n
+            &#8226;Cash Deposit (Currently Disabled)</item>
+        <item>Aadhaar enabled Payment System is easy to use, safe and secure payment platform to avail benefits by using Aadhaar number &amp; biometrics. \n
+
+Aadhaar enabled Payment System facilitates inter-operability across banks in a safe and secured manner Reaching the unreached - The model enable banks to extend financial services to the unreached clients beyond their branch network as beneficiaries of the BCs are mostly located at unbanked and underbanked areas</item>
+        <item>  eKYC is Electronic Know Your Customer. It is an electronic way of doing real time KYC of a customer using Aadhaar authentication. The Customer has to provide his/her Aadhaar number and biometrics. eKYC enables an organization to get electronic copy of customer identity and address details, as present in UIDAI database, with customer consent.</item>
+        <item>Mantra, MORPHO, secugen , Persona , Smartek</item>
+        <item>Do probing that has he activated auto credit to bank option. If he has enabled this option than amount will credit into his account within 2 working days from the date of transaction if not we will raise complaint and create a ticket for the same.</item>
+        <item>Cash withdrawal - in case of cash-withdrawal if amount got debited from customers account and is not credited in Agents wallet kindly treat this as FAIL and do not handover the amount to customer. Customers Bank will settle the amount back in his account. Kindly ask customer to check the same from his bank.\n\n
+        Cash Deposit - In case cash deposit if amount got debited from your Agent wallet and is not credited in Customers bank account kindly treat this as SUCCESS and take the money customer. In most of the cases the same get settled in customer account in 24 Hours.</item>
+        <item>
+            In this case amount is not credited in customers account in 24 hours the transaction is a FAIL.\n\n
+
+Post BIO metric verification amount will be credited back in Agent wallet. Now Agent can give cash back to Customer.
+        </item>
+        <item>In absence of customer claim the fail amount will be auto settled in Agents wallet at T+5 Days.</item>
+
+
+    </string-array>
+
+    <string name="google_mob_adz">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="google_mob_adz_unit_id">ca-app-pub-8528774229304942/2711089713</string>
+    <string name="sender_login">Sender Login</string>
+    <!--<string name="google_mob_adz">ca-app-pub-8528774229304942~4794327579</string>-->
+
+    <string name="validate_msg">Dear Customer, beneficiary validation transaction would charge you a total amount of Rs 4. \n Do you wish to proceed ?</string>
+    <string name="validate_otp_msg">Beneficiary is not verified. Please verify before initiating a transaction</string>
+    <string name="ifsc_regex">^[A-Za-z]{4}[a-zA-Z0-9]{7}$</string>
+</resources>

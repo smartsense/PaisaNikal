@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    tools:context=".activities.SearchBankActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/bankdetails_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/white"
+        android:contentInsetLeft="0dp"
+        android:contentInsetStart="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:navigationIcon="@drawable/ic_close_gray_24dp"
+        app:titleTextColor="@android:color/black"
+        app:title="@string/select_bank"/>
+
+    <EditText
+        android:id="@+id/bankdetails_edtsearchcity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bussearch_txtchoose"
+        android:layout_margin="10dp"
+        android:drawableRight="@drawable/ic_search"
+        android:hint="@string/enter_bank" />
+
+    <ListView
+        android:id="@+id/bankdetails_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp" />
+
+</LinearLayout>

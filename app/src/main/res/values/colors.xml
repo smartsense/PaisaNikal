@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorlite">#FF7187FF</color>
+    <color name="colorAccent">@color/splash</color>
+    <color name="black_transparent">#80000000</color>
+    <color name="gray">#b7b7b7</color>
+    <color name="splash">#37409F</color>
+    <color name="toast_bg">#CC000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="red">#f44336</color>
+</resources>

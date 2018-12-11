@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config>
+        <domain includeSubdomains="true">uat2yesmoney.easypay.co.in</domain>
+        <pin-set expiration="2019-03-21">
+            <pin digest="SHA-256">E/5QkPWIEuZPxaimL5s5GzeE+bccw3dNDHOuJMy7n1s=</pin>
+            <pin digest="SHA-256">8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=</pin>
+            <pin digest="SHA-256">Ko8tivDrEjiY90yGasP6ZpBU4jwXvHqVvQI0GS3GNdA=</pin>
+        </pin-set>
+        <trustkit-config enforcePinning="false" />
+    </domain-config>
+    <domain-config>
+        <domain includeSubdomains="true">nsk.easypay.co.in</domain>
+        <pin-set>
+            <pin digest="SHA-256">E/5QkPWIEuZPxaimL5s5GzeE+bccw3dNDHOuJMy7n1s=</pin>
+            <pin digest="SHA-256">8Rw90Ej3Ttt8RRkrg+WYDS9n7IS03bk5bjP/UXPtaY8=</pin>
+            <pin digest="SHA-256">Ko8tivDrEjiY90yGasP6ZpBU4jwXvHqVvQI0GS3GNdA=</pin>
+        </pin-set>
+        <trustkit-config enforcePinning="false" />
+    </domain-config>
+</network-security-config>

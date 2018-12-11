@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayout11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_5sdp">
+
+            <EditText
+                android:id="@+id/beneName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:digits="@string/valid_chars_only"
+                android:hint="Beneficiary Name*"
+                android:inputType="textPersonName"
+                android:maxLength="35" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayout12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_5sdp">
+
+            <EditText
+                android:id="@+id/accountNo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Account No.*"
+                android:digits="@string/valid_num_only"
+                android:inputType="number"
+                android:maxLength="20" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayout13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_5sdp">
+
+            <EditText
+                android:id="@+id/confirmAccNo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Confirm Account No.*"
+                android:digits="@string/valid_num_only"
+                android:inputType="number"
+                android:maxLength="20" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!--<Spinner
+            android:id="@+id/spnrRemittanceType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
+            android:entries="@array/remittance_type"
+            android:visibility="gone" />
+
+        <Spinner
+            android:id="@+id/spnrBankName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:entries="@array/devices"
+            android:visibility="gone" />-->
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/_aepssearch_edtbank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:drawableEnd="@drawable/ic_forward"
+            android:focusable="false"
+            android:hint="@string/select_bank" />
+
+        <LinearLayout
+            android:id="@+id/iscfLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:layout_weight="1.1">
+
+                <EditText
+                    android:id="@+id/isfcCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:digits="@string/valid_chars_ifcs"
+                    android:hint="Ifsc Code*"
+                    android:inputType="textCapCharacters"
+                    android:maxLength="11" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <!--<Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.8"
+                android:background="@drawable/button_bg"
+                android:text="Don't know IFSC"
+                android:textColor="@color/white"
+                android:visibility="gone" />-->
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:gravity="left|center"
+            android:text="@string/terms_condition_dmt" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnRegister"
+        style="@style/button_style_corner"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_weight="1"
+        android:background="@drawable/button_circle_background"
+        android:text="Register Beneficiary"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_15sdp" />
+</LinearLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mask="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/linearAdharNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        mask:layout_constraintBottom_toTopOf="@+id/mantra_btnCapture"
+        mask:layout_constraintEnd_toEndOf="parent"
+        mask:layout_constraintStart_toStartOf="parent"
+        mask:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:textColor="@color/colorAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="0.3"
+            android:text="Aadhar No:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+
+        <TextView
+            android:id="@+id/edtxAdharNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_weight="0.7"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            android:inputType="phone"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            android:typeface="monospace"
+            android:digits="1234567890"
+             />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/mantra_btnCapture"
+        style="@style/button_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:text="Capture"
+        mask:layout_constraintBottom_toBottomOf="parent"
+        mask:layout_constraintEnd_toEndOf="parent"
+        mask:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

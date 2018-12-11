@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolBarTransaction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/transaction_history"
+        app:titleTextColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:minHeight="@dimen/_35sdp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/fromDate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:enabled="false"
+            android:gravity="center"
+            android:hint="From Date"
+            android:inputType="none"
+            android:textSize="@dimen/_16sdp" />
+
+        <ImageButton
+            android:id="@+id/fromBtn"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_weight="0.5"
+            android:background="@drawable/ic_calendar"
+            android:text="FROM" />
+
+        <EditText
+            android:id="@+id/toDate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:enabled="false"
+            android:gravity="center"
+            android:hint="To Date"
+            android:inputType="none"
+            android:textSize="@dimen/_16sdp" />
+
+        <ImageButton
+            android:id="@+id/toBtn"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_weight="0.5"
+            android:background="@drawable/ic_calendar"
+            android:text="TO" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/noData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="No Data Available"
+        android:textStyle="bold"
+        android:visibility="gone" />
+</LinearLayout>

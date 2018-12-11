@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+
+    <RadioButton
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="455dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="1dp"
+        android:gravity="start|center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bankName"
+        app:layout_constraintStart_toEndOf="@+id/checkbox"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <TextView
+        android:id="@+id/bankName"
+        android:layout_width="453dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/isfcCode"
+        app:layout_constraintStart_toEndOf="@+id/checkbox"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <TextView
+        android:id="@+id/isfcCode"
+        android:layout_width="@dimen/_380sdp"
+        android:layout_height="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/accountNo"
+        app:layout_constraintStart_toStartOf="@+id/bankName"
+        app:layout_constraintTop_toBottomOf="@+id/bankName" />
+
+    <TextView
+        android:id="@+id/accountNo"
+        android:layout_width="@dimen/_380sdp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/isfcCode"
+        app:layout_constraintTop_toBottomOf="@+id/isfcCode" />
+</android.support.constraint.ConstraintLayout>
