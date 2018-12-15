@@ -239,14 +239,15 @@ class FragmentListBene : Fragment() {
 
         //Collections.sort(dmtEntity!!.bENEFICIARYDATA)
 
-        Collections.sort(dmtEntity!!.bENEFICIARYDATA, object : Comparator<BeneficiaryEntity> {
-            override fun compare(lhs: BeneficiaryEntity, rhs: BeneficiaryEntity): Int {
-                // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
-                return if (lhs.bENENAME.toLowerCase() < rhs.bENENAME.toLowerCase()) -1 else if (lhs.bENENAME.toLowerCase() > rhs.bENENAME.toLowerCase()) 1 else 0
-            }
-        })
-
         if (dmtEntity != null && dmtEntity?.bENEFICIARYDATA != null) {
+
+            Collections.sort(dmtEntity!!.bENEFICIARYDATA, object : Comparator<BeneficiaryEntity> {
+                override fun compare(lhs: BeneficiaryEntity, rhs: BeneficiaryEntity): Int {
+                    // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
+                    return if (lhs.bENENAME.toLowerCase() < rhs.bENENAME.toLowerCase()) -1 else if (lhs.bENENAME.toLowerCase() > rhs.bENENAME.toLowerCase()) 1 else 0
+                }
+            })
+
             mAdapter = MoviesAdapter(dmtEntity!!.bENEFICIARYDATA as ArrayList<BeneficiaryEntity>) { position ->
                 _position = position
             }

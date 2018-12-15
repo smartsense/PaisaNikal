@@ -76,7 +76,7 @@ class URLGenerator : URLProvider() {
         const val URL_TRANSACTION_REFUND_DMT = "txn/dmt-refund"
         const val URL_TRANSACTION_CHARGE_DMT = "txn/dmt-getcharges"
         const val URL_BENELIST_DMT = "general/list-beneficiary"
-        const val URL_WORKING_BALANCE = "/agentWorkingBalance"
+        const val URL_WORKING_BALANCE = "agentWorkingBalance"
         //mobileapp/txn/dmt-moneytransfer
     }
 }

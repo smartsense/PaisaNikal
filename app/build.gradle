@@ -9,16 +9,16 @@ android {
         applicationId "aepsapp.paisanikal.com.aepsandroid"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 16
-        versionName "1.5.0"
+        versionCode 17
+        versionName "1.6.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
     buildTypes {
         release {
-            debuggable true
+            debuggable false
             minifyEnabled true
-            buildConfigField "Boolean", "DEBUG_MODE", "true"
+            buildConfigField "Boolean", "DEBUG_MODE", "false"
             buildConfigField "String", "HOST", '"https://nsk.easypay.co.in/"'
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

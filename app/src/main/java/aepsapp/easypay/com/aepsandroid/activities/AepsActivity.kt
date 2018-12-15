@@ -136,6 +136,7 @@ class AepsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
         getAgentLimit()
 
         aeps_balance.setOnCheckedChangeListener { buttonView, isChecked ->
@@ -150,6 +151,7 @@ class AepsActivity : AppCompatActivity() {
 
     }
 
+    @Synchronized
     private fun getAgentLimit() {
         try {
             val header = EPCoreEntity.EPHeader()
@@ -172,9 +174,13 @@ class AepsActivity : AppCompatActivity() {
 
     private val limitResp = object : VolleyJsonRequest.OnJsonResponse {
         override fun responseReceived(jsonObj: JSONObject) {
-            val objData = jsonObj.getJSONObject(AppConstants.KEY_DATA)
-            val balance = objData.getDouble("effectiveBalance")
-            aeps_toolbar.setSubtitle(String.format(getString(R.string.aeps_balance), Utils.formatAmount(balance)))
+            if (jsonObj.getString("RESP_CODE").equals("200")) {
+                val objData = jsonObj.getJSONObject(AppConstants.KEY_DATA)
+                if (objData.has("effectiveBalance")) {
+                    val balance = objData.getDouble("effectiveBalance")
+                    aeps_toolbar.setSubtitle(String.format(getString(R.string.aeps_balance), Utils.formatAmount(balance)))
+                }
+            }
         }
 
         override fun errorReceived(code: Int, message: String) {

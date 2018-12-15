@@ -310,12 +310,12 @@ class FragmentAddBene : Fragment() {
             }
             if (TextUtils.isEmpty(accountNoVal) || accountNoVal.length < 6) {
                 accountNo.requestFocus()
-                accountNo.setError("Enter account no")
+                accountNo.setError("Enter minimum 6 digit account no")
                 return false
             }
             if (TextUtils.isEmpty(confirmAccNoVal) || confirmAccNoVal.length < 6) {
                 confirmAccNo.requestFocus()
-                confirmAccNo.setError("Enter confirmation account no")
+                confirmAccNo.setError("Enter valid confirm account no")
                 return false
             }
 

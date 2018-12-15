@@ -14,6 +14,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v7.app.AppCompatActivity
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -507,8 +508,9 @@ class FundTransferActivity : AppCompatActivity() {
                 return false
             }
 
+            val PREF_AGENT_CODE_TO_SHOW_BALANCE = Preference.getStringPreference(this@FundTransferActivity, AppConstants.PREF_AGENT_CODE_TO_SHOW)
             val agentLimit = Preference.getStringPreference(this@FundTransferActivity, AppConstants.PREF_BALANCE).toDouble()
-            if (amountVal > agentLimit) {
+            if (amountVal > agentLimit && !TextUtils.isEmpty(PREF_AGENT_CODE_TO_SHOW_BALANCE) && PREF_AGENT_CODE_TO_SHOW_BALANCE.equals("MODEL_ONE_AGENT")) {
                 amount.requestFocus()
                 amount.error = "Insufficient agent limit"
                 return false
@@ -534,14 +536,15 @@ class FundTransferActivity : AppCompatActivity() {
         }*/
 
         //Collections.sort(dmtEntity!!.bENEFICIARYDATA)
-        Collections.sort(dmtEntity!!.bENEFICIARYDATA, object : Comparator<BeneficiaryEntity> {
-            override fun compare(lhs: BeneficiaryEntity, rhs: BeneficiaryEntity): Int {
-                // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
-                return if (lhs.bENENAME.toLowerCase() < rhs.bENENAME.toLowerCase()) -1 else if (lhs.bENENAME.toLowerCase() > rhs.bENENAME.toLowerCase()) 1 else 0
-            }
-        })
 
         if (dmtEntity != null && dmtEntity!!.bENEFICIARYDATA != null) {
+
+            Collections.sort(dmtEntity!!.bENEFICIARYDATA, object : Comparator<BeneficiaryEntity> {
+                override fun compare(lhs: BeneficiaryEntity, rhs: BeneficiaryEntity): Int {
+                    // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
+                    return if (lhs.bENENAME.toLowerCase() < rhs.bENENAME.toLowerCase()) -1 else if (lhs.bENENAME.toLowerCase() > rhs.bENENAME.toLowerCase()) 1 else 0
+                }
+            })
 
             val strArry = ArrayList<BeneficiaryEntity>()
             val data = BeneficiaryEntity()

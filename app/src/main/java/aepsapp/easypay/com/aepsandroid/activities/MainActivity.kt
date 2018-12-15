@@ -83,8 +83,10 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
 
         //change here
-
-        //updateBalance()
+        val PREF_AGENT_CODE_TO_SHOW_BALANCE = Preference.getStringPreference(this@MainActivity, AppConstants.PREF_AGENT_CODE_TO_SHOW)
+        if (!TextUtils.isEmpty(PREF_AGENT_CODE_TO_SHOW_BALANCE) && PREF_AGENT_CODE_TO_SHOW_BALANCE.equals("MODEL_ONE_AGENT")) {
+            updateBalance()
+        }
     }
 
     fun updateBalance() {
@@ -177,6 +179,7 @@ class MainActivity : AppCompatActivity() {
         Utils.showAlert(this@MainActivity, getString(R.string.logout_msg), "", View.OnClickListener {
             Preference.clearPreference(this@MainActivity, AppConstants.PREF_AGENT_ID)
             Preference.clearPreference(this@MainActivity, AppConstants.PREF_AGENT_MOBILE)
+            URLProvider.instance.setBaseContext(applicationContext, AppConstants.BASE_URL_CONTEXT)
             //Preference.clearPreference(this@MainActivity, AppConstants.PREF_LATITUDE)
             //Preference.clearPreference(this@MainActivity, AppConstants.PREF_LONGITUTE)
             val intent = Intent(this@MainActivity, LoginActivity::class.java)

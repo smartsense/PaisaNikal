@@ -529,7 +529,7 @@ class LoginActivity : AppCompatActivity(), LocationListener, GoogleApiClient.Con
         }
     }
 
-    private fun askForSMSPermission() {
+    /*private fun askForSMSPermission() {
         if ((ContextCompat.checkSelfPermission(this@LoginActivity,
                         Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED) ||
                 (ContextCompat.checkSelfPermission(this@LoginActivity,
@@ -538,6 +538,19 @@ class LoginActivity : AppCompatActivity(), LocationListener, GoogleApiClient.Con
             ActivityCompat.requestPermissions(this@LoginActivity,
                     arrayOf(Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION),
                     PERMISSION_READSMS)
+
+        } else {
+            Preference.savePreference(this@LoginActivity, AppConstants.IS_SMS_PERMISSION_GIVEN, true)
+            registerSMSReceiver()
+        }
+    }*/
+
+    private fun askForSMSPermission() {
+        if (ContextCompat.checkSelfPermission(this@LoginActivity,
+                        Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this@LoginActivity,
+                    arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION),PERMISSION_READSMS)
 
         } else {
             Preference.savePreference(this@LoginActivity, AppConstants.IS_SMS_PERMISSION_GIVEN, true)
@@ -552,15 +565,15 @@ class LoginActivity : AppCompatActivity(), LocationListener, GoogleApiClient.Con
             PERMISSION_READSMS -> {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.size > 0) {
-                    val sms = grantResults[0] == PackageManager.PERMISSION_GRANTED
+                    //val sms = grantResults[0] == PackageManager.PERMISSION_GRANTED
                     val loc = grantResults[1] == PackageManager.PERMISSION_GRANTED
 
-                    if (sms) {
+                    /*if (sms) {
                         Preference.savePreference(this@LoginActivity, AppConstants.IS_SMS_PERMISSION_GIVEN, true)
                         registerSMSReceiver()
                     } else {
                         Utils.showAlert(this@LoginActivity, getString(R.string.sms_permission))
-                    }
+                    }*/
 
                     if (loc) {
                         buildGoogleApiClient()

@@ -2,12 +2,7 @@ package aepsapp.easypay.com.aepsandroid.network
 
 import aepsapp.easypay.com.aepsandroid.R
 import aepsapp.easypay.com.aepsandroid.activities.SplashActivity
-import aepsapp.easypay.com.aepsandroid.common.AEPSApplication
-import aepsapp.easypay.com.aepsandroid.common.AppConstants
-import aepsapp.easypay.com.aepsandroid.common.DeviceInfo
-import aepsapp.easypay.com.aepsandroid.common.Preference
-import aepsapp.easypay.com.aepsandroid.common.RSAEncryptionUtils
-import aepsapp.easypay.com.aepsandroid.common.Utils
+import aepsapp.easypay.com.aepsandroid.common.*
 import aepsapp.easypay.com.aepsandroid.entities.EPCoreEntity
 import aepsapp.easypay.com.aepsandroid.exceptions.InternetNotAvailableException
 import aepsapp.easypay.com.aepsandroid.widgets.EPProgressDialog
@@ -24,6 +19,7 @@ import android.widget.Toast
 import com.android.volley.*
 import com.android.volley.VolleyLog.TAG
 import com.android.volley.toolbox.*
+import com.android.volley.toolbox.EncryptionHelper
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.shashank.sony.fancytoastlib.FancyToast
@@ -427,10 +423,13 @@ class VolleyJsonRequest private constructor() {
 
     private fun redirectToLogin(isClearPref: Boolean = false) {
         val starter = Intent(context!!, SplashActivity::class.java)
+        URLProvider.instance.setBaseContext(context!!, AppConstants.BASE_URL_CONTEXT)
         starter.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK and Intent.FLAG_ACTIVITY_CLEAR_TOP and Intent.FLAG_ACTIVITY_NEW_TASK)
         starter.putExtra("error", true)
-        if (isClearPref)
+        if (isClearPref) {
             Preference.clearPreference(context!!, AppConstants.PREF_AGENT_ID)
+            Preference.clearPreference(context!!, AppConstants.PREF_AGENT_MOBILE)
+        }
         context!!.startActivity(starter)
         if (context is Activity)
             (context as Activity).finish()
