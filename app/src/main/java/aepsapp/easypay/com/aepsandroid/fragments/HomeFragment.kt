@@ -203,7 +203,7 @@ class HomeFragment : Fragment() {
 
             VolleyJsonRequest.getInstance(activity!!).request(Utils.generateURL(activity!!, URLGenerator.URL_SEARCH_CUSTOMER_DMT), objCore, seachCustomerDmt, true)
         } catch (e: JSONException) {
-            Log.e(VolleyLog.TAG, "validateReceiveMoney: JSONException", e)
+            Log.e(VolleyLog.TAG, "JSONException", e)
         } catch (e: InternetNotAvailableException) {
             Utils.showToast(activity!!, getString(R.string.internet_not_available), FancyToast.ERROR)
         }
