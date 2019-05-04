@@ -51,6 +51,9 @@ public class BeneficiaryEntity implements Parcelable, Comparable<BeneficiaryEnti
     @SerializedName("IS_BENEVERIFIED")
     @Expose
     public Boolean iSBENEVERIFIED;
+    @SerializedName("ISPAYTM_BENE")
+    @Expose
+    public Boolean ISPAYTM_BENE;
 
     protected BeneficiaryEntity(Parcel in) {
         this.bENEID = ((Integer) in.readValue((Integer.class.getClassLoader())));
@@ -62,6 +65,7 @@ public class BeneficiaryEntity implements Parcelable, Comparable<BeneficiaryEnti
         this.bANKIFSCCODE = ((String) in.readValue((String.class.getClassLoader())));
         this.bENEOTPVERIFIED = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
         this.iSBENEVERIFIED = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
+        this.ISPAYTM_BENE = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
     }
 
     public BeneficiaryEntity() {
@@ -77,6 +81,7 @@ public class BeneficiaryEntity implements Parcelable, Comparable<BeneficiaryEnti
         dest.writeValue(bANKIFSCCODE);
         dest.writeValue(bENEOTPVERIFIED);
         dest.writeValue(iSBENEVERIFIED);
+        dest.writeValue(ISPAYTM_BENE);
     }
 
     public int describeContents() {

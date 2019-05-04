@@ -109,9 +109,10 @@ class HomeFragment : Fragment() {
     private fun setMenuItems() {
         val services = mutableListOf<ServiceEntity>()
         services.add(ServiceEntity(getString(R.string.aeps), R.drawable.ic_aeps))
+        services.add(ServiceEntity(getString(R.string.imps_cap), R.drawable.ic_imps)) //first it was DMT
+        services.add(ServiceEntity(getString(R.string.neft_cap), R.drawable.ic_neft))
         //disable temporarily
         //services.add(ServiceEntity(getString(R.string.e_keyc), R.drawable.ic_ekyc))
-        services.add(ServiceEntity(getString(R.string.dmt), R.drawable.ic_dmt))
         home_recycler.adapter = MenuAdapter(activity!!, services) { position ->
             when (position) {
                 0 -> {
@@ -126,6 +127,13 @@ class HomeFragment : Fragment() {
                     startActivity(intent)
                 }*/
                 1 -> {
+                    //imps
+                    Preference.savePreference(activity!!, AppConstants.PREF_OP, "EPDMTNUR")
+                    showDialog(services[position])
+                }
+                2 -> {
+                    //neft
+                    Preference.savePreference(activity!!, AppConstants.PREF_OP, "DMTNUR")
                     showDialog(services[position])
                 }
             }
@@ -186,9 +194,7 @@ class HomeFragment : Fragment() {
     private fun makeValidateCall(mobile: String) {
         try {
             mobileNumber = mobile
-            Preference.savePreference(activity!!, AppConstants.PREF_OP, "DMTNUR")
             Preference.savePreference(activity!!, AppConstants.PREF_ST, "REMDOMESTIC")
-
             val data = JsonObject()
             data.addProperty("OP", Preference.getStringPreference(activity!!, AppConstants.PREF_OP))
             data.addProperty("ST", Preference.getStringPreference(activity!!, AppConstants.PREF_ST))

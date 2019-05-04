@@ -86,22 +86,36 @@ class FundTransferActivity : AppCompatActivity() {
         spinnerBene.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, _position: Int, id: Long) {
                 position = _position - 1
-                if (position > 0) {
+                if (position >= 0) {
                     //check
-                    if (dmtEntity!!.bENEFICIARYDATA[position].bENEOTPVERIFIED) {
+                    if (Preference.getStringPreference(this@FundTransferActivity, AppConstants.PREF_OP).equals("EPDMTNUR")) {
+                        if (dmtEntity!!.bENEFICIARYDATA[position].ISPAYTM_BENE == false) {
+                            val dilog = DialogAlert(this@FundTransferActivity)
+                            dilog.setMessage(getString(R.string.validate_otp_msg))
+                            dilog.setPositiveButton("Yes", View.OnClickListener {
+                                validateBene()
+                            })
+                            dilog.setNegativeButton("No", View.OnClickListener {
+                                setValues(-1)
+                            })
+                            dilog.setCancelable(false)
+                            dilog.show()
+                        }
+                    } else
+                        if (dmtEntity!!.bENEFICIARYDATA[position].bENEOTPVERIFIED) {
 
-                    } else {
-                        val dilog = DialogAlert(this@FundTransferActivity)
-                        dilog.setMessage(getString(R.string.validate_otp_msg))
-                        dilog.setPositiveButton("Yes", View.OnClickListener {
-                            validateBene()
-                        })
-                        dilog.setNegativeButton("No", View.OnClickListener {
-                            setValues(-1)
-                        })
-                        dilog.setCancelable(false)
-                        dilog.show()
-                    }
+                        } else {
+                            val dilog = DialogAlert(this@FundTransferActivity)
+                            dilog.setMessage(getString(R.string.validate_otp_msg))
+                            dilog.setPositiveButton("Yes", View.OnClickListener {
+                                validateBene()
+                            })
+                            dilog.setNegativeButton("No", View.OnClickListener {
+                                setValues(-1)
+                            })
+                            dilog.setCancelable(false)
+                            dilog.show()
+                        }
                 }
             }
 
@@ -121,7 +135,7 @@ class FundTransferActivity : AppCompatActivity() {
 
     private fun makeValidateCall(mobile: String) {
         try {
-            Preference.savePreference(this@FundTransferActivity, AppConstants.PREF_OP, "DMTNUR")
+            //Preference.savePreference(this@FundTransferActivity, AppConstants.PREF_OP, "DMTNUR")
             Preference.savePreference(this@FundTransferActivity, AppConstants.PREF_ST, "REMDOMESTIC")
 
             val data = JsonObject()
@@ -456,6 +470,14 @@ class FundTransferActivity : AppCompatActivity() {
         val btnNeft = dialogView.findViewById(R.id.btnNeft) as Button
         val btncancel = dialogView.findViewById(R.id.btncancel) as ImageButton
 
+        if (Preference.getStringPreference(this, AppConstants.PREF_OP).equals("DMTNUR")) {
+            btnImps.visibility = View.GONE
+            btnNeft.visibility = View.VISIBLE
+        } else {
+            btnNeft.visibility = View.GONE
+            btnImps.visibility = View.VISIBLE
+        }
+
         accountNo.setText(dmtEntity!!.bENEFICIARYDATA[position].bANKACCOUNTNO)
         beneName.setText(dmtEntity!!.bENEFICIARYDATA[position].bENENAME)
         bank.setText(dmtEntity!!.bENEFICIARYDATA[position].bENEBANKNAME)
@@ -558,6 +580,13 @@ class FundTransferActivity : AppCompatActivity() {
 
             for (i in 0 until dmtEntity!!.bENEFICIARYDATA.size) {
                 strArry.add(dmtEntity!!.bENEFICIARYDATA[i])
+                /*if (Preference.getStringPreference(this, AppConstants.PREF_OP).equals("EPDMTNUR")) {
+                    if (dmtEntity!!.bENEFICIARYDATA[i].ISPAYTM_BENE) {
+                        strArry.add(dmtEntity!!.bENEFICIARYDATA[i])
+                    }
+                } else {
+                    strArry.add(dmtEntity!!.bENEFICIARYDATA[i])
+                }*/
             }
 
             spinnerBene.adapter = CustomArrayAdapter(this@FundTransferActivity, R.layout.custom_spinner, strArry)

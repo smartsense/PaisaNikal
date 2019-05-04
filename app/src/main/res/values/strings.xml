@@ -199,4 +199,6 @@ Post BIO metric verification amount will be credited back in Agent wallet. Now A
     <string name="validate_msg">Dear Customer, beneficiary validation transaction would charge you a total amount of Rs 4. \n Do you wish to proceed ?</string>
     <string name="validate_otp_msg">Beneficiary is not verified. Please verify before initiating a transaction</string>
     <string name="ifsc_regex">^[A-Za-z]{4}[a-zA-Z0-9]{7}$</string>
+    <string name="neft_cap">NEFT</string>
+    <string name="imps_cap">IMPS</string>
 </resources>

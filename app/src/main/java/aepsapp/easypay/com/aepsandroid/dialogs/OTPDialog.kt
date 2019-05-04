@@ -82,7 +82,7 @@ class OTPDialog(private val otpChange: OnOTPChange) : DialogFragment() {
         btnVarify = dialog.findViewById(R.id.varifyotp_btnsubmit) as Button
         btnResend = dialog.findViewById(R.id.varifyotp_btnresend) as Button
         edtOTP = dialog.findViewById(R.id.varifyotp_edtotp) as EditText
-        edtOTP!!.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(4))
+        edtOTP!!.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(6))
         val imgClose = dialog.findViewById(R.id.dialogotp_imgclose) as ImageView
         val txtName = dialog.findViewById(R.id.otp_balance) as TextView
         startTimer()

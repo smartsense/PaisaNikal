@@ -82,7 +82,7 @@ class FragmentListBene : Fragment() {
 
     fun getBeneData() {
         try {
-            Preference.savePreference(activity!!, AppConstants.PREF_OP, "DMTNUR")
+            //Preference.savePreference(activity!!, AppConstants.PREF_OP, "DMTNUR")
             Preference.savePreference(activity!!, AppConstants.PREF_ST, "REMDOMESTIC")
 
             val data = JsonObject()
