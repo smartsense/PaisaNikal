@@ -35,9 +35,12 @@ class AEPSApplication : Application() {
         //URLProvider.instance.setBaseAddressHost(applicationContext, AppConstants.BASE_URL)
         URLProvider.instance.setBaseContext(applicationContext, AppConstants.BASE_URL_CONTEXT)
 
-        MobileAds.initialize(this, getString(R.string.google_mob_adz))
-
-        Fresco.initialize(this)
+        try {
+            MobileAds.initialize(this, getString(R.string.google_mob_adz))
+            Fresco.initialize(this)
+        } catch (e: java.lang.Exception) {
+            e.printStackTrace()
+        }
 
         /* val core = CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build()
          Fabric.with(this, Crashlytics.Builder().core(core).build())

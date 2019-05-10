@@ -76,10 +76,11 @@ class AppConstants {
 
 
         //BASE FIRST URL
-        //var BASE_URL_UAT = "http://192.168.10.150:5050/"
+        //var BASE_URL = "http://192.168.10.150:5050/"
         //var BASE_URL = "https://nsk.easypay.co.in/"
-        //var BASE_URL = "https://epmoney.easypay.co.in/"
-        var BASE_URL = "https://mpm2.easypay.co.in"
+        var BASE_URL = "https://epmoney.easypay.co.in/"
+        //var BASE_URL = "https://mpm2.easypay.co.in/"
+        //var BASE_URL = "http://192.168.10.162:5050/" pooja system
         var BASE_URL_CONTEXT = "aepsappctx/"
     }
 }

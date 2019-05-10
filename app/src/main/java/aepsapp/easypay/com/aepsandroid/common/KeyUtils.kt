@@ -12,7 +12,7 @@ import org.json.JSONObject
 class KeyUtils : KeyExtractor() {
 
     public override fun getKey(encData: String): JSONObject {
-        var jsonData: JSONObject? = null
+        var jsonData = JSONObject()
         val splitData = encData.split(":".toRegex()).dropLastWhile({ it.isEmpty() }).toTypedArray()
         val firstKey = splitData[0]
         val keyResp = splitData[1]
@@ -41,7 +41,7 @@ class KeyUtils : KeyExtractor() {
             Log.e(TAG, "getKey: ", e)
         }
 
-        return jsonData!!
+        return jsonData
     }
 
     companion object {

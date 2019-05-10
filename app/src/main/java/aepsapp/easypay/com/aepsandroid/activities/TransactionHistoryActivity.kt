@@ -199,7 +199,8 @@ class TransactionHistoryActivity : AppCompatActivity() {
         if (list != null && list!!.size > 0) {
             noData.visibility = View.GONE
             recycleView.visibility = View.VISIBLE
-            recycleView.adapter = RecycleAdapter(this, list!!, agentCode) { position ->
+            val isToShowRefund = Preference.getStringPreference(this@TransactionHistoryActivity, AppConstants.PREF_OP)
+            recycleView.adapter = RecycleAdapter(this, list!!, agentCode, isToShowRefund) { position ->
                 otpCall()
                 otpDialog = OTPDialog(object : OnOTPChange {
                     override fun onResendClick() {
@@ -320,7 +321,7 @@ class TransactionHistoryActivity : AppCompatActivity() {
         }
     }
 
-    class RecycleAdapter(context: Context, val services: List<TransactionHistoryEntity>, code: String, val clicked: (Int) -> Unit) : RecyclerView.Adapter<RecycleAdapter.MenuHolder>() {
+    class RecycleAdapter(context: Context, val services: List<TransactionHistoryEntity>, code: String, var isToShowRefund: String, val clicked: (Int) -> Unit) : RecyclerView.Adapter<RecycleAdapter.MenuHolder>() {
 
         private var inflater: LayoutInflater? = null
         private var _code = ""
@@ -359,11 +360,18 @@ class TransactionHistoryActivity : AppCompatActivity() {
 
             holder.txtDetails.text = Html.fromHtml(data + next)
 
-            if (service.tRANSACTIONSTATUS.equals("FAILED") && service.aID.equals(_code) && service.sT.equals("REMDOMESTIC")) {
+
+            if (isToShowRefund.equals("DMTNUR") && service.tRANSACTIONSTATUS.equals("FAILED") && service.aID.equals(_code) && service.sT.equals("REMDOMESTIC")) {
                 holder.refundBtn.visibility = View.VISIBLE
             } else {
                 holder.refundBtn.visibility = View.GONE
             }
+
+            /*if (service.tRANSACTIONSTATUS.equals("FAILED") && service.aID.equals(_code) && service.sT.equals("REMDOMESTIC")) {
+                holder.refundBtn.visibility = View.VISIBLE
+            } else {
+                holder.refundBtn.visibility = View.GONE
+            }*/
 
             holder.refundBtn.setOnClickListener {
                 clicked(position)

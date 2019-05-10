@@ -297,7 +297,11 @@ class FingerprintScanActivity : AppCompatActivity() {
             objData.addProperty("cust_Mob", mobileNo)
             objData.addProperty("userId", Preference.getStringPreference(this@FingerprintScanActivity, AppConstants.PREF_USER_ID))
             objData.addProperty("screenName", Preference.getStringPreference(this@FingerprintScanActivity, AppConstants.PREF_SCREEN))
-            objData.addProperty("IIN", objBank!!.bank_Iin)
+            if (objBank != null && objBank!!.bank_Iin != null)
+                objData.addProperty("IIN", objBank!!.bank_Iin)
+            else
+                objData.addProperty("IIN", "")
+
             objData.addProperty("AadharNumber", aadharNo)
             objData.addProperty("isAgree", true)
             objData.addProperty("BiometricData", fingerData)

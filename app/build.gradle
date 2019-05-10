@@ -9,8 +9,8 @@ android {
         applicationId "aepsapp.paisanikal.com.aepsandroid"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 18
-        versionName "1.7.0"
+        versionCode 19
+        versionName "1.8.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -20,11 +20,13 @@ android {
             minifyEnabled true
             buildConfigField "Boolean", "DEBUG_MODE", "false"
             //buildConfigField "String", "HOST", '"https://nsk.easypay.co.in/"'
-            buildConfigField "String", "HOST", '"https://mpm2.easypay.co.in"'
+            //buildConfigField "String", "HOST", '"https://mpm2.easypay.co.in/"'
+            buildConfigField "String", "HOST", '"https://epmoney.easypay.co.in/"'
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            buildConfigField "String", "HOST", '"http://uat5yesmoney.easypay.co.in:5050/"'
+            buildConfigField "String", "HOST", '"http://192.168.10.150:5050/"'
+            //buildConfigField "String", "HOST", '"http://uat5yesmoney.easypay.co.in:5050/"'
             //buildConfigField "String", "HOST", '"http://192.168.10.31:9090/"'
             //buildConfigField "String", "HOST", '"https://uat2yesmoney.easypay.co.in/"'
             /*buildConfigField "String", "HOST", '"http://192.168.10.150:5050/"'*/
@@ -40,7 +42,6 @@ android {
             storeFile file('C:\\Users\\AMIT\\Desktop\\android certs\\Y3sB4n3.jks')
             storePassword 'Y3sB4n3'
         }
-
     }
     buildToolsVersion '28.0.2'
     productFlavors {
@@ -79,7 +80,6 @@ dependencies {
     }
     implementation 'com.google.android.gms:play-services-location:15.0.1'
     implementation 'com.google.android.gms:play-services-ads:15.0.1'
-
 }
 
 repositories {

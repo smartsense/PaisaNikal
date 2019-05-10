@@ -182,7 +182,7 @@ class MainActivity : AppCompatActivity() {
             URLProvider.instance.setBaseContext(applicationContext, AppConstants.BASE_URL_CONTEXT)
             //Preference.clearPreference(this@MainActivity, AppConstants.PREF_LATITUDE)
             //Preference.clearPreference(this@MainActivity, AppConstants.PREF_LONGITUTE)
-            val intent = Intent(this@MainActivity, LoginActivity::class.java)
+            val intent = Intent(this@MainActivity, SplashActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
             finish()

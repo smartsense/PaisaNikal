@@ -504,7 +504,7 @@ class FundTransferActivity : AppCompatActivity() {
                 return false
             }
 
-            if (amount.text.toString().length > 0) {
+            if (!TextUtils.isEmpty(amount.text.trim().toString()) && amount.text.toString().length > 0) {
                 amountVal = Integer.parseInt(amount.text.toString())
             } else {
                 amount.requestFocus()

@@ -6,7 +6,7 @@ import java.security.*
 import java.security.spec.X509EncodedKeySpec
 import javax.crypto.Cipher
 
-class RSAEncryptionUtils private constructor() {
+class RSAEncryptionUtils public constructor() {
     private var kpg: KeyPairGenerator? = null
     private var kp: KeyPair? = null
     private var publicKey: PublicKey? = null
@@ -100,6 +100,8 @@ class RSAEncryptionUtils private constructor() {
 
     companion object {
 
+        //private val ALGO = "RSA/ECB/PKC8"
+        //private val ALGO = "RSA/ECB/PKCS5Padding"
         private val ALGO = "RSA/ECB/PKCS1Padding"
 
         private val TAG = "EPRSAEncryptionUtils"

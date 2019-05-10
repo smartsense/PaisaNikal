@@ -163,13 +163,17 @@ class HomeFragment : Fragment() {
         newSender.setText(Html.fromHtml(str))
 
         newSender.setOnClickListener {
-            _alertDialog!!.dismiss()
+            if (_alertDialog!!.isShowing)
+                _alertDialog!!.dismiss()
             Preference.savePreference(activity!!, AppConstants.MOBILE_NO_DMT, "")
             val i = Intent(activity, RegisterSenderActivity::class.java)
             startActivity(i)
         }
 
-        btncancel.setOnClickListener { _alertDialog!!.dismiss() }
+        btncancel.setOnClickListener {
+            if (_alertDialog!!.isShowing)
+                _alertDialog!!.dismiss()
+        }
 
         btnSubmit.setOnClickListener {
             val data = editText.text.toString()
@@ -242,7 +246,10 @@ class HomeFragment : Fragment() {
         msgText.visibility = View.VISIBLE
         msgText.setText("\n \t\tEntered Mobile No. is not registered. \n \t\tDo you want to register?")
 
-        btncancel.setOnClickListener { alertDialog.dismiss() }
+        btncancel.setOnClickListener {
+            if (alertDialog != null)
+                alertDialog.dismiss()
+        }
         btnSubmit.setOnClickListener {
             _alertDialog!!.dismiss()
             alertDialog.dismiss()
@@ -379,7 +386,8 @@ class HomeFragment : Fragment() {
         }
 
         override fun errorReceived(code: Int, message: String) {
-            otpDialog!!.clearOTP()
+            if (otpDialog != null)
+                otpDialog!!.clearOTP()
             Utils.showAlert(activity!!, message)
         }
     }

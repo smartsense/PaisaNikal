@@ -54,6 +54,11 @@ class FragmentListBene : Fragment() {
         //getBeneData()
         setRecycleData()
 
+        if (Preference.getStringPreference(activity!!, AppConstants.PREF_OP).equals("EPDMTNUR"))
+            v.delete.visibility = View.GONE
+        else
+            v.delete.visibility = View.VISIBLE
+
         v.delete.setOnClickListener {
             if (dmtEntity != null && dmtEntity!!.bENEFICIARYDATA != null && dmtEntity!!.bENEFICIARYDATA.size > 0)
                 if (_position >= 0)
@@ -160,7 +165,8 @@ class FragmentListBene : Fragment() {
         }
 
         override fun errorReceived(code: Int, message: String) {
-            otpDialog!!.clearOTP()
+            if (otpDialog != null)
+                otpDialog!!.clearOTP()
             Utils.showAlert(activity!!, message)
         }
     }

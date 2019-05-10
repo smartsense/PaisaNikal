@@ -9,8 +9,6 @@ import aepsapp.easypay.com.aepsandroid.widgets.EPProgressDialog
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import android.util.Log
@@ -462,9 +460,11 @@ class VolleyJsonRequest private constructor() {
 
         try {
             progressDialog = progressDialog ?: EPProgressDialog(context)
-            progressDialog!!.isIndeterminate = true
+            //progressDialog!!.isIndeterminate = true
             progressDialog!!.setCancelable(false)
-            progressDialog!!.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            //if (progressDialog!!.window != null && progressDialog!!.isShowing)
+            //    progressDialog!!.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            //progressDialog!!.window!!.setBackgroundDrawableResource(android.R.color.transparent)
             //progressDialog.setIndeterminateDrawable(ContextCompat.getDrawable(context,R.drawable.ep_progress));
 
             if ((!(context as AppCompatActivity).isFinishing()) && !context.isFinishing()) {

@@ -106,10 +106,10 @@ class SplashActivity : AppCompatActivity() {
                         val apiKey = objData.get("apiKey").toString()
 
                         /* val certificateDigest = objData.getString("certificateDigest")
-                         if (!AppConstants.IC_CHECK_FOR_DEBUG && !Utils.checkAppSignature(this@SplashActivity, certificateDigest)) {
-                             Utils.showToast(this@SplashActivity, getString(R.string.certificate_tempered))
-                             finish()
-                         }*/
+                     if (!AppConstants.IC_CHECK_FOR_DEBUG && !Utils.checkAppSignature(this@SplashActivity, certificateDigest)) {
+                         Utils.showToast(this@SplashActivity, getString(R.string.certificate_tempered))
+                         finish()
+                     }*/
 
                         Preference.savePreference(this@SplashActivity, AppConstants.ENC_KEY, encKey)
 

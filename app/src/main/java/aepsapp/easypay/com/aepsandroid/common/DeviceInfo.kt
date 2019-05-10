@@ -11,6 +11,7 @@ import org.json.JSONObject
 import java.net.NetworkInterface
 import java.util.*
 
+
 /**
  * Created by ADMIN on 22-Aug-16.
  */
@@ -54,6 +55,25 @@ object DeviceInfo {
         return activeNetwork != null && activeNetwork.isConnectedOrConnecting
 
     }
+
+    /*fun isConnectedToInternet(context: Context): Boolean {
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork = cm.activeNetworkInfo
+        if (activeNetwork != null) {
+            // connected to the internet
+            if (activeNetwork.type === ConnectivityManager.TYPE_WIFI) {
+                // connected to wifi
+                return true
+            } else if (activeNetwork.type === ConnectivityManager.TYPE_MOBILE) {
+                // connected to mobile data
+                return false
+            }
+        } else {
+            return false
+            // not connected to the internet
+        }
+        return false
+    }*/
 
     fun getDeviceId(context: Context): String {
         return Settings.Secure.getString(context.contentResolver,
