@@ -115,8 +115,8 @@ class FragmentListBene : Fragment() {
             val resCode = jsonObj.getInt("RESP_CODE")
             //if (resCode == AppConstants.SUCCESS_DATA) {
             val data = jsonObj.getJSONObject("DATA")
-            val statusCustomer = data.getString("SENDER_CUSTTYPE")
-            Preference.savePreference(activity!!, AppConstants.CUSTOMER_KYC_STATUS, statusCustomer)
+            if (data.getString("SENDER_CUSTTYPE") != null)
+                Preference.savePreference(activity!!, AppConstants.CUSTOMER_KYC_STATUS, data.getString("SENDER_CUSTTYPE"))
             val gson = Gson()
             dmtEntity = gson.fromJson(data.toString(), DmtEntity::class.java)
             setRecycleData()

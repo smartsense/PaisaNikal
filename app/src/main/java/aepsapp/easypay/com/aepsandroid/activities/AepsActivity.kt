@@ -15,6 +15,8 @@ import android.support.v7.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
+import android.view.MenuItem
+import android.view.View
 import com.android.volley.VolleyLog
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
@@ -37,6 +39,7 @@ class AepsActivity : AppCompatActivity() {
     //private var objService: ServiceEntity? = null
     private var serviceType: String? = null
     lateinit var mAdView: AdView
+    private var balance = 0.0
 
     companion object {
         const val SEARCH_BANK = 2
@@ -47,7 +50,17 @@ class AepsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_aeps)
 
-        setSupportActionBar(aeps_toolbar)
+        //setSupportActionBar(aeps_toolbar)
+
+        setSupportActionBar(aepsToolBar)
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setTitle("AEPS")
+
+        if (Preference.getStringPreference(this@AepsActivity, AppConstants.PREF_AGENT_CODE_TO_SHOW).equals("MODEL_ONE_AGENT")) {
+            btnCashout.visibility = View.VISIBLE
+        } else
+            btnCashout.visibility = View.GONE
 
         serviceType = getString(R.string.type_balanceinfo)
         //objService = intent.getSerializableExtra(AppConstants.OBJ_SERVICE) as ServiceEntity?
@@ -58,8 +71,8 @@ class AepsActivity : AppCompatActivity() {
                }
            }*/
 
-        supportActionBar!!.setDisplayShowHomeEnabled(true)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        //supportActionBar!!.setDisplayShowHomeEnabled(true)
+        //supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         //MobileAds.initialize(this@AepsActivity, getString(R.string.google_mob_adz))
 
@@ -136,7 +149,6 @@ class AepsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
         getAgentLimit()
 
         aeps_balance.setOnCheckedChangeListener { buttonView, isChecked ->
@@ -148,7 +160,15 @@ class AepsActivity : AppCompatActivity() {
 
         aeps_balance.isChecked = true
 
+        btnCashout.setOnClickListener {
+            callCashoutApi()
+        }
+    }
 
+    private fun callCashoutApi() {
+        val intent = Intent(this@AepsActivity, AgentMoneyTransferActivity::class.java)
+        intent.putExtra("balance", balance)
+        startActivity(intent)
     }
 
     @Synchronized
@@ -177,8 +197,9 @@ class AepsActivity : AppCompatActivity() {
             if (jsonObj.getString("RESP_CODE").equals("200")) {
                 val objData = jsonObj.getJSONObject(AppConstants.KEY_DATA)
                 if (objData.has("effectiveBalance")) {
-                    val balance = objData.getDouble("effectiveBalance")
-                    aeps_toolbar.setSubtitle(String.format(getString(R.string.aeps_balance), Utils.formatAmount(balance)))
+                    balance = objData.getDouble("effectiveBalance")
+                    //aeps_toolbar.setSubtitle(String.format(getString(R.string.aeps_balance), Utils.formatAmount(balance)))
+                    limit.setText(String.format(getString(R.string.aeps_balance), "\n" + Utils.formatAmount(balance)))
                 }
             }
         }
@@ -366,4 +387,20 @@ class AepsActivity : AppCompatActivity() {
         }
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.getItemId()) {
+            android.R.id.home -> onBackPressed()
+
+            else -> {
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        val i = Intent(this@AepsActivity, MainActivity::class.java)
+        startActivity(i)
+        finish()
+        super.onBackPressed()
+    }
 }

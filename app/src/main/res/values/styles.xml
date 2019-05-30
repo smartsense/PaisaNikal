@@ -31,6 +31,11 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
+    <style name="button_style_green" parent="Base.Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_selector_green</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
     <style name="button_style_corner" parent="Base.Widget.AppCompat.Button">
         <item name="android:background">@drawable/button_selector</item>
         <item name="android:textColor">@android:color/white</item>

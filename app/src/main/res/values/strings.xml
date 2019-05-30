@@ -157,6 +157,7 @@ With the power of Mobile and Aadhaar, we have made it our mission to transform o
     <string name="enter_same_password">Enter Same password</string>
     <string name="contact_email">contact@paisanikal.com</string>
     <string name="location_updated_message">Location is updated successfully</string>
+    <string name="bank_detail">Bank Detail</string>
 
     <string-array name="faq_que">
         <item>1.What are the services available under AePS?</item>

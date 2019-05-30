@@ -212,6 +212,7 @@ class HomeFragment : Fragment() {
             objCore.DATA = data
 
             VolleyJsonRequest.getInstance(activity!!).request(Utils.generateURL(activity!!, URLGenerator.URL_SEARCH_CUSTOMER_DMT), objCore, seachCustomerDmt, true)
+            VolleyJsonRequest.getInstance(activity!!).request(Utils.generateURL(activity!!, URLGenerator.URL_SEARCH_CUSTOMER_DMT), objCore, seachCustomerDmt, true)
         } catch (e: JSONException) {
             Log.e(VolleyLog.TAG, "JSONException", e)
         } catch (e: InternetNotAvailableException) {
@@ -398,8 +399,9 @@ class HomeFragment : Fragment() {
             if (resCode == AppConstants.SUCCESS_DATA) {
                 _alertDialog!!.dismiss()
                 val data = jsonObj.getJSONObject("DATA")
-                val statusCustomer = data.getString("SENDER_CUSTTYPE")
-                Preference.savePreference(activity!!, AppConstants.CUSTOMER_KYC_STATUS, statusCustomer)
+                if (data.getString("SENDER_CUSTTYPE") != null) {
+                    Preference.savePreference(activity!!, AppConstants.CUSTOMER_KYC_STATUS, data.getString("SENDER_CUSTTYPE"))
+                }
                 val gson = Gson()
                 val data1 = gson.fromJson(data.toString(), DmtEntity::class.java)
                 val intent = Intent(activity, FundTransferActivity::class.java)

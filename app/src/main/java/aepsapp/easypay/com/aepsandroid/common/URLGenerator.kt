@@ -78,5 +78,13 @@ class URLGenerator : URLProvider() {
         const val URL_BENELIST_DMT = "general/list-beneficiary"
         const val URL_WORKING_BALANCE = "agentWorkingBalance"
         //mobileapp/txn/dmt-moneytransfer
+
+        //balance details
+        const val URL_AGENT_BANKDETAILS = "agentBankDetails"
+        const val URL_AGENT_OTP_SAVEUPDATE = "generalv2/aeps-sendAgentOtpToSaveOrUpdateBankDetails"
+        const val URL_AGENT_ADDUPDATE_BANKDETAILS = "generalv2/aeps-addorupdatebankDetail"
+        const val URL_TRANSFER_TO_MAINWALLET = "txn/aeps-transfertomainwallet"
+        const val URL_TRANSFER_TO_BANK = "txn/aeps-agentTransferToBankAcc"
+        const val URL_AGENT_TRANSACTION_HISTORY = "general/agent-getallaepsTransaction"
     }
 }

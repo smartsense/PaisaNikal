@@ -55,6 +55,7 @@ class AppConstants {
         const val TYPE_WITHDRAWAL = "WITHDRAWAL"
         const val OBJ_TXN: String = "OBJ_TXN"
         const val TXN_MSG: String = "TXN_MSG"
+        const val TXN_CODE: String = "TXN_CODE"
         const val REQUEST_ID: String = "REQUEST_ID"
         const val BANK_NAME = "BANK_NAME"
         const val KEY_NONCE = "KEY_NONCE"
@@ -73,6 +74,7 @@ class AppConstants {
         const val CUSTOMER_VERIFY = "CUSTVERIFICATION"
         const val BENE_VERIFY = "BENVERIFICATION"
         const val CUSTREFUND = "CUSTREFUND"
+        const val BANKDETAILS = "BANKDETAILS"
 
 
         //BASE FIRST URL

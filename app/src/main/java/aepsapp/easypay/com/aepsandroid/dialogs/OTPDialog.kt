@@ -25,12 +25,12 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-@SuppressLint("ValidFragment")
 /**
  * Created by Viral on 29-12-2016.
  */
 
-class OTPDialog(private val otpChange: OnOTPChange) : DialogFragment() {
+@SuppressLint("ValidFragment")
+class OTPDialog(private var otpChange: OnOTPChange) : DialogFragment() {
 
     internal var dateFormatter = SimpleDateFormat("mm:ss")
 

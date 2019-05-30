@@ -50,6 +50,11 @@ object Utils {
             return digits.toString()
         }
 
+    val aepsOrderId: String
+        get() {
+            return "AEPS" + System.currentTimeMillis()
+        }
+
     //return orderId for DMT
     fun dmtOrderId(from: String): String {
         val firstChar: Char = from.get(0)
@@ -125,15 +130,32 @@ object Utils {
     fun showAlert(context: Context, message: String, btnClick: View.OnClickListener) {
         /* new AlertDialog.Builder(context).setMessage(message).setTitle("").setView(R.layout.dialog_single_button)
                 .setNegativeButton(context.getString(R.string.ok), btnClick).show();*/
-        DialogAlert(context).setMessage(message).setNegativeButton(context.getString(R.string.ok), btnClick).show()
-
+        try {
+            DialogAlert(context).setMessage(message).setNegativeButton(context.getString(R.string.ok), btnClick).show()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
 
     fun showAlert(context: Context, message: String, title: String, yesClick: View.OnClickListener) {
-        DialogAlert(context).setMessage(message)
-                .setPositiveButton(context.getString(R.string.yes), yesClick)
-                .setNegativeButton(context.getString(R.string.no), View.OnClickListener { }).show()
+        try {
+            DialogAlert(context).setMessage(message)
+                    .setPositiveButton(context.getString(R.string.yes), yesClick)
+                    .setNegativeButton(context.getString(R.string.no), View.OnClickListener { }).show()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun showAlert(context: Context, message: String, title: String, yesClick: View.OnClickListener, noClick: View.OnClickListener) {
+        try {
+            DialogAlert(context).setMessage(message)
+                    .setPositiveButton(context.getString(R.string.yes), yesClick)
+                    .setNegativeButton(context.getString(R.string.no), noClick).show()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     fun showAlertNotDismiss(context: Context, message: String, title: String, yesClick: View.OnClickListener) {
@@ -265,6 +287,19 @@ object Utils {
         val split = _date.split(" ")
         val changeFrmt = split[0].split("-")
         return changeFrmt[2] + "-" + changeFrmt[1] + "-" + changeFrmt[0]
+    }
+
+    public fun isDouble(str: String): Boolean {
+        try {
+            // check if it can be parsed as any double
+            val x = java.lang.Double.parseDouble(str)
+            // check if the double can be converted without loss to an int
+            return if (x == x.toInt().toDouble()) false else true
+            // otherwise, this cannot be converted to an int (e.g. "1.2")
+            // short version: return x != (int) x;
+        } catch (e: NumberFormatException) {
+            return false
+        }
     }
 
 }

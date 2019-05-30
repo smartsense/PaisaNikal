@@ -32,14 +32,16 @@ import java.util.*
 
 class FundTransferActivity : AppCompatActivity() {
 
-    var dmtEntity: DmtEntity? = null
-    var receiptEntity: ReceiptEntity? = null
-    var senderEntity: SenderEntity? = null
-    var amountVal = 0
-    var position = -1
-    var remarkVal = ""
-    var otpDialog: OTPDialog? = null
-    var RESPONSE_CODE = 0
+    private var dmtEntity: DmtEntity? = null
+    private var receiptEntity: ReceiptEntity? = null
+    private var senderEntity: SenderEntity? = null
+    private var amountVal = 0
+    private var position = -1
+    private var remarkVal = ""
+    private var otpDialog: OTPDialog? = null
+    private var RESPONSE_CODE = 0
+    private var TOTAL_CHRGAMOUNT = 0.0
+    private var PAYABLE_AMOUNT = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -177,7 +179,6 @@ class FundTransferActivity : AppCompatActivity() {
         }
     }
 
-
     private fun callChargeApi() {
         try {
 
@@ -203,9 +204,6 @@ class FundTransferActivity : AppCompatActivity() {
             Utils.showToast(this, getString(R.string.internet_not_available), FancyToast.ERROR)
         }
     }
-
-    var TOTAL_CHRGAMOUNT = 0.0
-    var PAYABLE_AMOUNT = 0.0
 
     private val chargeResponce = object : VolleyJsonRequest.OnJsonResponse {
         override fun responseReceived(jsonObj: JSONObject) {
@@ -531,11 +529,13 @@ class FundTransferActivity : AppCompatActivity() {
             }
 
             val PREF_AGENT_CODE_TO_SHOW_BALANCE = Preference.getStringPreference(this@FundTransferActivity, AppConstants.PREF_AGENT_CODE_TO_SHOW)
-            val agentLimit = Preference.getStringPreference(this@FundTransferActivity, AppConstants.PREF_BALANCE).toDouble()
-            if (amountVal > agentLimit && !TextUtils.isEmpty(PREF_AGENT_CODE_TO_SHOW_BALANCE) && PREF_AGENT_CODE_TO_SHOW_BALANCE.equals("MODEL_ONE_AGENT")) {
-                amount.requestFocus()
-                amount.error = "Insufficient agent limit"
-                return false
+            if (!TextUtils.isEmpty(Preference.getStringPreference(this@FundTransferActivity, AppConstants.PREF_BALANCE)) && Utils.isDouble(Preference.getStringPreference(this@FundTransferActivity, AppConstants.PREF_BALANCE))) {
+                val agentLimit = Preference.getStringPreference(this@FundTransferActivity, AppConstants.PREF_BALANCE).toDouble()
+                if (amountVal > agentLimit && !TextUtils.isEmpty(PREF_AGENT_CODE_TO_SHOW_BALANCE) && PREF_AGENT_CODE_TO_SHOW_BALANCE.equals("MODEL_ONE_AGENT")) {
+                    amount.requestFocus()
+                    amount.error = "Insufficient agent limit"
+                    return false
+                }
             }
 
             if (remark.text.toString().length > 0) {

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout17"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_4sdp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout16"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/bankName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="@string/valid_chars_only"
+            android:hint="Bank Name"
+            android:maxLength="30"
+            android:textSize="18sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_4sdp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout18"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout17">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/accountNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="20"
+            android:hint="Account No"
+            android:inputType="number"
+            android:textSize="18sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout18"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_4sdp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout19"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout16">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/accountConfirmNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="20"
+            android:hint="Confirm Account No"
+            android:inputType="number"
+            android:textSize="18sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout19"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_4sdp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout20"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout18">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/ifscCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="@string/valid_chars_ifcs"
+            android:inputType="textCapCharacters"
+            android:maxLength="11"
+            android:hint="IFSC Code"
+            android:textSize="18sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_4sdp"
+        app:layout_constraintBottom_toTopOf="@+id/btnEdit"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout19">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/accHolderName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="@string/valid_chars_only"
+            android:maxLength="30"
+            android:hint="Account Holder Name"
+            android:textSize="18sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnEdit"
+        style="@style/button_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:padding="@dimen/_4sdp"
+        android:text="Edit"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnSaveUpdate"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnSaveUpdate"
+        style="@style/button_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:enabled="false"
+        android:padding="@dimen/_4sdp"
+        android:text="Save/Update"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnEdit" />
+
+
+</android.support.constraint.ConstraintLayout>

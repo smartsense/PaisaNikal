@@ -336,6 +336,7 @@ class FingerprintScanActivity : AppCompatActivity() {
             intent.putExtra(AppConstants.MOBILE_NO, mobileNo)
             intent.putExtra(AppConstants.BANK_NAME, objBank!!.bankName)
             intent.putExtra(AppConstants.TXN_MSG, jsonObj.getString("RESP_MSG"))
+            intent.putExtra(AppConstants.TXN_CODE, jsonObj.getString("RESP_CODE"))
             startActivity(intent)
             finish()
         }

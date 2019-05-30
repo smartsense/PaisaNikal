@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     private var mDrawerLayout: DrawerLayout? = null
     private var shopName: String? = null
+    private lateinit var navigationView: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +50,8 @@ class MainActivity : AppCompatActivity() {
 
         setDrawerEnabled(false)
 
-        val navigationView = findViewById<NavigationView>(R.id.nav_view)
+        navigationView = findViewById<NavigationView>(R.id.nav_view)
+
         navigationView.setNavigationItemSelectedListener { menuItem ->
             // set item as selected to persist highlight
             menuItem.isChecked = true
@@ -60,13 +62,17 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+        hideItem()
+
         shopName = Preference.getStringPreference(this@MainActivity, AppConstants.PREF_SHOP_NAME)
 
         changeFragment(HomeFragment(), shopName)
 
         nav_view.setNavigationItemSelectedListener { item ->
+
             when (item.itemId) {
                 R.id.menu_home -> changeFragment(HomeFragment(), shopName)
+                R.id.menu_bankdetails -> changeFragment(BankDetailFragment(), getString(R.string.bank_detail))
                 R.id.menu_contactus -> changeFragment(ContactusFragment(), getString(R.string.contact_us))
                 R.id.menu_Aboutus -> changeFragment(AboutUsFragment(), getString(R.string.about_us))
                 R.id.menu_faq -> changeFragment(FaqFragment(), getString(R.string.faq))
@@ -76,6 +82,16 @@ class MainActivity : AppCompatActivity() {
             mDrawerLayout?.closeDrawer(GravityCompat.START)
 
             true
+        }
+    }
+
+    private fun hideItem() {
+        //navigationView = findViewById(R.id.nav_view) as NavigationView
+        val nav_Menu = navigationView.getMenu()
+        if (Preference.getStringPreference(this@MainActivity, AppConstants.PREF_AGENT_CODE_TO_SHOW).equals("MODEL_ONE_AGENT")) {
+            nav_Menu.findItem(R.id.menu_bankdetails).setVisible(true)
+        } else {
+            nav_Menu.findItem(R.id.menu_bankdetails).setVisible(false)
         }
     }
 

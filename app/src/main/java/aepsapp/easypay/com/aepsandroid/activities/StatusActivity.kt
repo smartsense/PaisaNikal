@@ -10,9 +10,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
+import android.view.View
 import kotlinx.android.synthetic.main.activity_status.*
 
 class StatusActivity : AppCompatActivity() {
+    private var statusCode = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +28,7 @@ class StatusActivity : AppCompatActivity() {
 
         val txn = intent.getSerializableExtra(AppConstants.OBJ_TXN) as TransactionEntity
         val status = intent.getStringExtra(AppConstants.TXN_MSG)
+        statusCode = intent.getStringExtra(AppConstants.TXN_CODE)
         val mobileNo = intent.getStringExtra(AppConstants.MOBILE_NO)
 
         status_txtstatus.text = status
@@ -58,14 +61,32 @@ class StatusActivity : AppCompatActivity() {
 
     }
 
+    var isFrom = false
     override fun onBackPressed() {
-        redirectToHome()
+        if (!isFrom)
+            redirectToHome()
+        else
+            super.onBackPressed()
     }
 
     private fun redirectToHome() {
         (application as AEPSApplication).apiTime = System.currentTimeMillis()
-        val intent = Intent(this@StatusActivity, MainActivity::class.java)
-        startActivity(intent)
-        finish()
+        if (statusCode.equals("300")) {
+            val intent = Intent(this@StatusActivity, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        } else {
+            Utils.showAlert(this@StatusActivity, "Do you want to retry ?", "", View.OnClickListener {
+                /*val intent = Intent(this@StatusActivity, AepsActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+                startActivity(intent)*/
+                isFrom = true
+                onBackPressed()
+            }, View.OnClickListener {
+                val intent = Intent(this@StatusActivity, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            })
+        }
     }
 }
